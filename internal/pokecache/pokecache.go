@@ -28,7 +28,7 @@ func NewCache(interval time.Duration) PkCache {
 
 }
 
-func (cache *PkCache) AddCache(key string, val []byte) {
+func (cache *PkCache) AddToCache(key string, val []byte) {
 	cache.mu.Lock()
 	defer cache.mu.Unlock()
 
@@ -39,7 +39,7 @@ func (cache *PkCache) AddCache(key string, val []byte) {
 
 }
 
-func (cache *PkCache) Get(key string) ([]byte, bool) {
+func (cache *PkCache) GetFromCache(key string) ([]byte, bool) {
 	cache.mu.Lock()
 	defer cache.mu.Unlock()
 	cacheValue, ok := cache.cacheMap[key]
